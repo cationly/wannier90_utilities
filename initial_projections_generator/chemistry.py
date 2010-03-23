@@ -19,126 +19,126 @@ supported_elements = ['C','H','N', \
 ###
 
 def critical_length(specie1,specie2):
+  #
+  # gives  a cutoff distance  in A beyond which
+  # the  two species  are considered non-bonded
+  # to each other. This cutoff distance depends
+  # on the nature of the 2 species.
+  #
+  # INPUTS : 2 strings that caracterizes the
+  #          two chemical species to look at
+
+  # possible bonds of carbon
+  #
+  if (specie1=='C' and specie2=='C'):
     #
-    # gives  a cutoff distance  in A beyond which
-    # the  two species  are considered non-bonded
-    # to each other. This cutoff distance depends
-    # on the nature of the 2 species.
+    cutoff_distance = 1.72
+  
+  elif (specie1=='C' and specie2=='H') \
+    or (specie1=='H' and specie2=='C'):
     #
-    # INPUTS : 2 strings that caracterizes the
-    #          two chemical species to look at
+    cutoff_distance = 1.30
 
-    # possible bonds of carbon
+  elif (specie1=='C' and specie2=='N') \
+    or (specie1=='N' and specie2=='C'):
     #
-    if (specie1=='C' and specie2=='C'):
-        #
-        cutoff_distance = 1.72
-    
-    elif (specie1=='C' and specie2=='H') \
-      or (specie1=='H' and specie2=='C'):
-        #
-        cutoff_distance = 1.30
+    cutoff_distance = 2.20
 
-    elif (specie1=='C' and specie2=='N') \
-      or (specie1=='N' and specie2=='C'):
-        #
-        cutoff_distance = 2.20
-
-    elif (specie1=='C' and specie2=='O') \
-      or (specie1=='O' and specie2=='C'):
-        #
-        cutoff_distance = 2.20
-
-    elif (specie1=='C' and specie2=='F') \
-      or (specie1=='F' and specie2=='C'):
-        #
-        cutoff_distance = 1.85
-
-    # possible bonds of hydrogen
+  elif (specie1=='C' and specie2=='O') \
+    or (specie1=='O' and specie2=='C'):
     #
-    elif (specie1=='H' and specie2=='H'):
-        #
-        cutoff_distance = 0.94
+    cutoff_distance = 2.20
 
-    elif (specie1=='H' and specie2=='N') \
-      or (specie1=='N' and specie2=='H'):
-        #
-        cutoff_distance = 1.21
-
-    elif (specie1=='H' and specie2=='O') \
-      or (specie1=='O' and specie2=='H'):
-        #
-        cutoff_distance = 1.16
-
-    elif (specie1=='H' and specie2=='F') \
-      or (specie1=='F' and specie2=='H'):
-        #
-        cutoff_distance = 1.12
-
-    # possible bonds of nitrogen
+  elif (specie1=='C' and specie2=='F') \
+    or (specie1=='F' and specie2=='C'):
     #
-    elif (specie1=='N' and specie2=='N'):
-        #
-        cutoff_distance = 1.55
+    cutoff_distance = 1.85
 
-    elif (specie1=='N' and specie2=='O') \
-      or (specie1=='O' and specie2=='N'):
-        #
-        cutoff_distance = 1.67
-
-    elif (specie1=='N' and specie2=='F') \
-      or (specie1=='F' and specie2=='N'):
-        #
-        cutoff_distance = 1.64
-
-    # possible bonds of oxygen
+  # possible bonds of hydrogen
+  #
+  elif (specie1=='H' and specie2=='H'):
     #
-    elif (specie1=='O' and specie2=='O'):
-        #
-        cutoff_distance = 1.69
+    cutoff_distance = 0.94
 
-    elif (specie1=='O' and specie2=='F') \
-      or (specie1=='F' and specie2=='O'):
-        #
-        cutoff_distance = 1.62
-
-    # possible bonds of fluorine
+  elif (specie1=='H' and specie2=='N') \
+    or (specie1=='N' and specie2=='H'):
     #
-    elif (specie1=='F' and specie2=='F'):
-        #
-        cutoff_distance = 1.62
+    cutoff_distance = 1.21
 
-    return cutoff_distance
+  elif (specie1=='H' and specie2=='O') \
+    or (specie1=='O' and specie2=='H'):
+    #
+    cutoff_distance = 1.16
+
+  elif (specie1=='H' and specie2=='F') \
+    or (specie1=='F' and specie2=='H'):
+    #
+    cutoff_distance = 1.12
+
+  # possible bonds of nitrogen
+  #
+  elif (specie1=='N' and specie2=='N'):
+    #
+    cutoff_distance = 1.55
+
+  elif (specie1=='N' and specie2=='O') \
+    or (specie1=='O' and specie2=='N'):
+    #
+    cutoff_distance = 1.67
+
+  elif (specie1=='N' and specie2=='F') \
+    or (specie1=='F' and specie2=='N'):
+    #
+    cutoff_distance = 1.64
+
+  # possible bonds of oxygen
+  #
+  elif (specie1=='O' and specie2=='O'):
+    #
+    cutoff_distance = 1.69
+
+  elif (specie1=='O' and specie2=='F') \
+    or (specie1=='F' and specie2=='O'):
+    #
+    cutoff_distance = 1.62
+
+  # possible bonds of fluorine
+  #
+  elif (specie1=='F' and specie2=='F'):
+    #
+    cutoff_distance = 1.62
+
+  return cutoff_distance
 
 ###
 ###### function : "electronegativity"
 ###
 
 def electronegativity(element):
-    #
-    # this little function returns the Pauling
-    # electronegativity of the element
-    #
-    # from Wikipedia on electronegativity
-    #
-    # INPUT :  a string that caracterizes the
-    #          chemical species
-    
-    dictionnary = {'C' : 2.55, \
-                   'H' : 2.20, \
-                   'N' : 3.04, \
-                   'O' : 3.44, \
-                   'F' : 3.98}
+  #
+  # this little function returns the Pauling
+  # electronegativity of the element
+  #
+  # from Wikipedia on electronegativity
+  #
+  # INPUT :  a string that caracterizes the
+  #          chemical species
+  
+  dictionnary = {'C' : 2.55, \
+                 'H' : 2.20, \
+                 'N' : 3.04, \
+                 'O' : 3.44, \
+                 'F' : 3.98}
 
-    if element in dictionnary.keys():
-        #
-        value = dictionnary[element]
+  if element in dictionnary.keys():
+    #
+    value = dictionnary[element]
 
-    else:
-        #
-        value = 1.0
+  else:
+    #
+    value = 1.0
 
-    return value
+  return value
 
 ###
 ###### function : "find_projections"
